@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    width: 60vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    background: #CCF;
+}
+.hanoi {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 450px;
+    width: 600px;
+    background: #CCF;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, .5);
+    border-top: none;
+    border-radius: 0.25rem;
+}
+.tower {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.tower p {
+    margin-bottom: -30px;
+    text-decoration: underline;
+}
+.tower:hover {
+    background: #99F;
+}
+.tower::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 200px;
+    bottom: 0;
+    left: 90px;
+    background: #600;
+    border-radius: 10px 10px 0 0;
+}
+.disk {
+    position: absolute;
+    background: linear-gradient(0deg, #F00, #600);
+    height: 35px;
+    width: 180px;
+    border-radius: 2rem;
+    margin-left: 10px;
+    z-index: 1;
+    transition: left .2s, bottom .2s .2s;
+    pointer-events: none;
+}
+.d1 { width: 60px; margin-left: 70px;}
+.d2 { width: 90px; margin-left: 55px;}
+.d3 { width: 120px; margin-left: 40px;}
+.d4 { width: 150px; margin-left: 25px;}
+
+.t2 { left: 200px; }
+.t3 { left: 400px; }
+
+.p1 { bottom: 0; }
+.p2 { bottom: 35px; }
+.p3 { bottom: 70px; }
+.p4 { bottom: 105px; }
+.p5 { bottom: 140px; }
+.p0 { bottom: 300px; }
+
+.container {
+    position: relative;
+    width: 300px;
+    padding: 15vh 0 0 20px;
+}
+.container div, p{
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: .25rem;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, .5);
+    cursor: pointer;
+    transition: all 200ms;
+}
+button:hover {
+    color: white;
+    background: #99F;
+}

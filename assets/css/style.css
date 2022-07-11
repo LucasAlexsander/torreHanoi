@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body main {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border-bottom: 10px solid black;
+}
+body main .text {
+    position: absolute;
+    top: 7vh;
+}
+main .text h1 {
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, .3);
+}
+body main .palito {
+    width: 20px;
+    height: 40vh;
+    background: black;
+    border-radius: .25rem .25rem 0 0;
+}
+body main .palito::before,
+body main .palito::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 40vh;
+    background: black;
+    margin-left: -30vw;
+    border-radius: .25rem .25rem 0 0;
+}
+body main .palito::after {
+    margin-left: 30vw;
+}
+body main span {
+    position: absolute;
+    width: calc(190px - (var(--size) * 2));
+    height: 20px;
+    background-color: var(--color);
+    margin-left: -60vw;
+    margin-bottom: var(--size);
+    border-radius: 30px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .8);
+    cursor: pointer;
+    z-index: 0;
+}
+body main span:hover {
+    transform: scaleX(1.1) scaleY(1.3);
+    z-index: 1;
+    border: 2px solid black;
+}

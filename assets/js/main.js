@@ -117,3 +117,11 @@ const closeAlert = () => {
     alerta.style.visibility = 'hidden'; 
     alerta.style.opacity = '0'
 }
+
+const resetButton = (e) => {
+    if(e){
+        alerta.style.visibility = 'hidden'; 
+        alerta.style.opacity = '0'
+    }
+    createDisk()
+}

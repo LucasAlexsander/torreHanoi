@@ -20,7 +20,7 @@
             <h1>Parabéns você ganhou!</h1>
             <p>Deseja jogar novamente?</p>
             <div class="button-area">
-                <button>Sim</button>
+                <button onclick="resetButton('alert')">Sim</button>
                 <button onclick="closeAlert()">Não</button>
             </div>
         </div>
@@ -48,12 +48,12 @@
             <p>Contador de movimentos: <span id="contador">0</span></p>
         </div>
         <div class="solve">
-            <p>Deseja resolver?</p>
+            <p>Deseja resolver automaticamente?</p>
             <button onclick="solveButton()">Resolver</button>
         </div>
         <div class="reload">
             <p>Deseja começar novamente?</p>
-            <button onclick="location.reload()">Reiniciar</button>
+            <button onclick="resetButton()">Reiniciar</button>
         </div>
         <div class="size">
             <p>Escolha o número de discos:</p>
@@ -66,7 +66,7 @@
             </select>
         </div>
         <div class="text">
-            
+
         </div>
     </div>
 

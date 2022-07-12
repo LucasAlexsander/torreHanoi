@@ -21,7 +21,7 @@
             <p>Deseja jogar novamente?</p>
             <div class="button-area">
                 <button onclick="resetButton('alert')">Sim</button>
-                <button onclick="closeAlert()">Não</button>
+                <button onclick="closeAlert()">Não, valeu</button>
             </div>
         </div>
     </div>
@@ -44,8 +44,15 @@
     </div>
 
     <div class="container">
+        <div class="text">
+            <h1>Torre Hanoi</h1>
+            <p>Formula: 2<sup>n</sup> - 1</p>
+            <p>n é o número de discos</p>
+        </div>
+        <hr>
         <div class="count">
             <p>Contador de movimentos: <span id="contador">0</span></p>
+            <p>Movimentos necessários: <span id="diskMoviments">31</span></p>
         </div>
         <div class="solve">
             <p>Deseja resolver automaticamente?</p>
@@ -64,9 +71,6 @@
                 <option value="4">4</option>
                 <option value="5" selected>5</option>
             </select>
-        </div>
-        <div class="text">
-
         </div>
     </div>
 

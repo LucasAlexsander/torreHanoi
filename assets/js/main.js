@@ -1,7 +1,7 @@
 let towers = [[5,4,3,2,1],[],[]];
 let positions = ['p1', 'p2', 'p3', 'p4', 'p5', 'p0', 't1', 't2', 't3'];
 let movements = [];
-let count = 0;
+let count = -1;
 let contactor = document.querySelector('#contador');
 let diskSize = 5;
 let hanoi = document.querySelector('#hanoi');
@@ -14,11 +14,12 @@ const getDiskSize = () => {
     diskSize = document.querySelector('#diskSize');
 }
 
-const createDisk = () => {
+const createDisk = () => {    
+    count = 0
+    contactor.innerHTML = count
     diskSize = document.querySelector('#diskSize').value;
     let validation = document.querySelectorAll('.disk');
     towersSize = towers[0].length - (towers[0].length - diskSize);
-    console.log(towersSize);
     // console.log('Antes: ' + towers[0]);
 
     for(let i = 0; i < 3; i++) {
@@ -41,10 +42,15 @@ const createDisk = () => {
         disk.classList.add('p'+descrement);
         hanoi.insertBefore(disk, tower);
     }
+    document.querySelector('#diskMoviments').innerHTML = (2**diskSize - 1);
+
 }
 
-const render = () => {
+const render = () => {    
+    count++;
+    console.log(count);
     towers.forEach((tower, towerId) => {
+        contactor.innerHTML = count;
         tower.forEach((disk, position) => {
             let d = document.querySelector('.d' + disk);
             positions.forEach(position => {
@@ -54,7 +60,6 @@ const render = () => {
             d.classList.add('p'+ (position + 1))
         });
     });
-    contactor.innerHTML = count ++;
     if(towers[2].length == towersSize) {
         setTimeout(() => {
             alerta.style.visibility = 'visible';    
@@ -85,7 +90,6 @@ const clickTower = (n) => {
     } else {
         movements.unshift([n])
     }
-    console.log(movements.value);
 }
 
 setInterval(() => {

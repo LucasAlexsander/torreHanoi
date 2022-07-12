@@ -2,7 +2,44 @@ let towers = [[5,4,3,2,1],[],[]];
 let positions = ['p1', 'p2', 'p3', 'p4', 'p5', 'p0', 't1', 't2', 't3'];
 let movements = [];
 let count = 0;
-let contactor = document.querySelector('#contador')
+let contactor = document.querySelector('#contador');
+let diskSize = 5;
+let hanoi = document.querySelector('#hanoi');
+let tower = document.querySelector('.tower');
+let towersSize = 5;
+let alerta = document.querySelector('.alert')
+
+
+const getDiskSize = () => {
+    diskSize = document.querySelector('#diskSize');
+}
+
+const createDisk = () => {
+    diskSize = document.querySelector('#diskSize').value;
+    let validation = document.querySelectorAll('.disk');
+    towersSize = towers[0].length - (towers[0].length - diskSize);
+    console.log(towersSize);
+    // console.log('Antes: ' + towers[0]);
+
+    // Removendo dos os elementos da torre
+    while (towers[0].length != 0) towers[0].shift()
+    // Adicionando os elementos com base no tamanho da torre
+    for(let i = 0; i < towersSize; i++) towers[0].unshift(i+1)
+    // Removendo todos os discos
+    for(let i = 0; i < validation.length; i++) {
+        hanoi.removeChild(validation[i]);
+    }
+    // Inserindo todos os discos
+    for(let i=1; i <= diskSize; i++) {
+        let disk = document.createElement('div');
+        let descrement = (diskSize - i) + 1;
+        disk.classList.add('disk');
+        disk.classList.add('d'+i);
+        disk.classList.add('t1');
+        disk.classList.add('p'+descrement);
+        hanoi.insertBefore(disk, tower);
+    }
+}
 
 const render = () => {
     towers.forEach((tower, towerId) => {
@@ -16,8 +53,14 @@ const render = () => {
         });
     });
     contactor.innerHTML = count ++;
-    console.log(count - 1);
+    if(towers[2].length == towersSize) {
+        setTimeout(() => {
+            alerta.style.visibility = 'visible';    
+            alerta.style.opacity = '1';    
+        }, 1000);
+    }
 }
+
 
 const move = (fromtower, totower) => {
     if(!towers[fromtower].length) return
@@ -30,7 +73,6 @@ const move = (fromtower, totower) => {
         }
     }
     d.classList.add('p0')
-    console.log(d);
     towers[totower].push(disk)
     setTimeout(render, 400)
 }
@@ -41,7 +83,7 @@ const clickTower = (n) => {
     } else {
         movements.unshift([n])
     }
-    console.log(movements);
+    console.log(movements.value);
 }
 
 setInterval(() => {
@@ -63,9 +105,13 @@ const solve = (size, fromtower, totower) => {
 
 const solveButton = () => {
     setTimeout(() => {
-        solve(5, 0, 2)
+        solve(diskSize, 0, 2)
     }, 500);
 }
 
-
 render()
+
+const closeAlert = () => {
+    alerta.style.visibility = 'hidden'; 
+    alerta.style.opacity = '0'
+}

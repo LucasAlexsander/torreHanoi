@@ -21,8 +21,8 @@ body .alert {
     height: 400px;
     background: #7A86B6;
     z-index: 5;
-    visibility: visible;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;

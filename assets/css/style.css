@@ -21,8 +21,8 @@ body .alert {
     height: 400px;
     background: #7A86B6;
     z-index: 5;
-    visibility: visible;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -143,6 +143,7 @@ body .alert .button-area button {
 .container .text p { margin-bottom: 3px; }
 .container hr { margin: 10px 0; }
 .container div, p{  margin-bottom: 15px; }
+.container span { font-weight: 500; font-size: 18px; }
 button, select {
     padding: 8px 12px;
     border: none;

@@ -21,8 +21,10 @@ const createDisk = () => {
     console.log(towersSize);
     // console.log('Antes: ' + towers[0]);
 
-    // Removendo dos os elementos da torre
-    while (towers[0].length != 0) towers[0].shift()
+    for(let i = 0; i < 3; i++) {
+        // Removendo dos os elementos da torre
+        while (towers[i].length != 0) towers[i].shift()
+    }
     // Adicionando os elementos com base no tamanho da torre
     for(let i = 0; i < towersSize; i++) towers[0].unshift(i+1)
     // Removendo todos os discos

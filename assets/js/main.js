@@ -17,6 +17,11 @@ const getDiskSize = () => {
 }
 
 const createDisk = () => {    
+    if(timeInSeg != null) {
+        clearInterval(timeInSeg);
+        timeInSeg = null;
+        time = 1;
+    }
     count = 0
     contactor.innerHTML = count
     diskSize = document.querySelector('#diskSize').value;

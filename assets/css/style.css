@@ -101,7 +101,7 @@ nav .text-area p {
 }
 nav .text-area a {
     text-decoration: none;
-    color: #7A86B6;
+    color: #fff;
     font-weight: 500;
     margin-bottom: 203px;
 }
@@ -111,6 +111,7 @@ nav .text-area span.vejaMais {
     border-radius: .25rem;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, .5);
     transition: all .2s ease-in-out;
+    color: #7A86B6;
 }
 nav .text-area span.vejaMais:hover {
     background: #495C83;
@@ -126,6 +127,9 @@ nav ul li {
 }
 nav ul li a {
     color: #fff;
+}
+nav ul li a:hover {
+    text-decoration: underline;
 }
 nav h3 {
     margin: 15px 0 7px 0;

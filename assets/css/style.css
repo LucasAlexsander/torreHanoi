@@ -143,7 +143,7 @@ body .alert .button-area button {
 .container .text p { margin-bottom: 3px; }
 .container hr { margin: 10px 0; }
 .container div, p{  margin-bottom: 15px; }
-.container span { font-weight: 500; font-size: 18px; }
+.container span, .container b { font-weight: 500; font-size: 18px; }
 button, select {
     padding: 8px 12px;
     border: none;
@@ -161,4 +161,26 @@ button:hover, select:hover {
 select:focus {
     background: whitesmoke;
     color: #000;
+}
+
+.movementError {
+    animation: errorAlert .7s linear;
+}
+
+@keyframes errorAlert {
+    0% {
+        background: rgb(205, 65, 65);
+    }
+    25% {
+        background: inherit;
+    }
+    50% {
+        background: rgb(205, 65, 65);
+    }
+    75% {
+        background: inherit;
+    }
+    100% {
+        background: rgb(205, 65, 65);
+    }
 }

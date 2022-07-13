@@ -1,14 +1,16 @@
+const alerta = document.querySelector('.alert');
+const contactor = document.querySelector('#contador');
+const hanoi = document.querySelector('#hanoi');
+const timeDOM = document.querySelector('#timeSpend');
+const tower = document.querySelector('.tower');
 let towers = [[5,4,3,2,1],[],[]];
+let towersSize = 5;
 let positions = ['p1', 'p2', 'p3', 'p4', 'p5', 'p0', 't1', 't2', 't3'];
 let movements = [];
 let count = -1;
-let contactor = document.querySelector('#contador');
 let diskSize = 5;
-let hanoi = document.querySelector('#hanoi');
-let tower = document.querySelector('.tower');
-let towersSize = 5;
-let alerta = document.querySelector('.alert')
-
+let time = 1; // Em segundos
+let timeInSeg = null;
 
 const getDiskSize = () => {
     diskSize = document.querySelector('#diskSize');
@@ -43,12 +45,11 @@ const createDisk = () => {
         hanoi.insertBefore(disk, tower);
     }
     document.querySelector('#diskMoviments').innerHTML = (2**diskSize - 1);
-
 }
 
 const render = () => {    
     count++;
-    console.log(count);
+    // console.log(count);
     towers.forEach((tower, towerId) => {
         contactor.innerHTML = count;
         tower.forEach((disk, position) => {
@@ -61,6 +62,9 @@ const render = () => {
         });
     });
     if(towers[2].length == towersSize) {
+        clearInterval(timeInSeg);
+        timeInSeg = null;
+        time = 1;
         setTimeout(() => {
             alerta.style.visibility = 'visible';    
             alerta.style.opacity = '1';    
@@ -68,14 +72,26 @@ const render = () => {
     }
 }
 
-
 const move = (fromtower, totower) => {
+    // Adicionando o tempo em segundos no DOM
+    const timeFunction = () => { timeDOM.innerHTML = time++ }
+    if(!timeInSeg) timeInSeg = setInterval( timeFunction, 1000);
+
     if(!towers[fromtower].length) return
     let disk = towers[fromtower].pop()
     let d = document.querySelector('.d' + disk)
     if(towers[totower].length) {
         if(towers[totower][towers[totower].length - 1] < disk) {
-            // Class que vai picar vermelho
+            // Pegamos a torre que deu o erro
+            let towerError = d.classList[2];
+            let towerDOMClass = document.querySelector('.error'+towerError).classList
+            // Adicionamos a classe para piscar vermelho
+            towerDOMClass.add('movementError')
+            // Removemos a ação de piscar vermelho
+            setTimeout(() => {
+                towerDOMClass.remove('movementError')
+            }, 730);
+
             return towers[fromtower].push(disk)
         }
     }
@@ -125,7 +141,12 @@ const closeAlert = () => {
 const resetButton = (e) => {
     if(e){
         alerta.style.visibility = 'hidden'; 
-        alerta.style.opacity = '0'
+        alerta.style.opacity = '0';
     }
+    
+    // Resetando o time
+    clearInterval(timeInSeg);
+    timeInSeg = null;
+    time = 1;
     createDisk()
 }

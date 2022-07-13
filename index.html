@@ -8,7 +8,6 @@
     <title>Torre Hanoi</title>
 </head>
 <body>
-
     <div class="alert">
         <div class="closeButton" onclick="closeAlert()">
             <ion-icon name="close-outline"></ion-icon>
@@ -32,13 +31,13 @@
         <div class="disk d3 t1 p3"></div>
         <div class="disk d4 t1 p2"></div>
         <div class="disk d5 t1 p1"></div>
-        <div class="tower" onclick="clickTower(0)">
+        <div class="tower errort1" onclick="clickTower(0)">
             <p>Inicio</p>
         </div>
-        <div class="tower" onclick="clickTower(1)">
+        <div class="tower errort2" onclick="clickTower(1)">
             <p>Auxiliar</p>
         </div>
-        <div class="tower" onclick="clickTower(2)">
+        <div class="tower errort3" onclick="clickTower(2)">
             <p>Fim</p>
         </div>
     </div>
@@ -53,6 +52,7 @@
         <div class="count">
             <p>Contador de movimentos: <span id="contador">0</span></p>
             <p>Movimentos necessários: <span id="diskMoviments">31</span></p>
+            <p>Tempo decorrido: <span id="timeSpend">0</span> <b>segundos</b></p>
         </div>
         <div class="solve">
             <p>Deseja resolver automaticamente?</p>

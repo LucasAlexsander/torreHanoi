@@ -143,10 +143,48 @@ const resetButton = (e) => {
         alerta.style.visibility = 'hidden'; 
         alerta.style.opacity = '0';
     }
-    
+
     // Resetando o time
     clearInterval(timeInSeg);
     timeInSeg = null;
     time = 1;
     createDisk()
 }
+
+// Botão do header
+const buttonHeader = document.querySelector('.menuButton');
+const extraArea = document.querySelector('nav');
+let menuOpen = false
+buttonHeader.addEventListener('click', () => {
+    if(!menuOpen) {
+        buttonHeader.classList.add('open');
+        extraArea.classList.add('open')
+        menuOpen = true;
+    } else {
+        buttonHeader.classList.remove('open');
+        extraArea.classList.remove('open');
+        menuOpen = false;
+    }
+})
+
+
+// const handleClickMenu = () => {
+//     let verificando = buttonHeader.className;
+//     let spans = document.querySelectorAll('.menu');
+
+//     if(verificando.indexOf('active') == -1) {
+//         buttonHeader.classList.add('active')
+//         spans.forEach(span => {
+//             span.classList.add('active');
+//         });
+//     } else {
+//         spans.forEach(span => {
+//             buttonHeader.classList.remove('active')
+//             span.classList.remove('active');
+//         });
+//     }
+
+// }
+
+
+
